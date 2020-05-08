@@ -11,20 +11,26 @@
     </form>
 
     <h2>{{form.mail}}</h2>
+
+   
     </div>
 
 </template>
 
 <style>
     h1{
-        color:red;
+        color:blue;
     }
 </style>
 
 <script>
+
+
+
 import firebase from 'firebase'
 
 export default {
+  
   data () {
     return {
       form: {
