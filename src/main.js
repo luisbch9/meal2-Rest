@@ -3,12 +3,11 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import * as firebase from 'firebase'
 
 Vue.config.productionTip = false
 
-import * as firebase from 'firebase'
-
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyBNvWKvnuLHl9XIuuAKZZSL5VTkVlXsJ0c',
   authDomain: 'meal2-b8cb2.firebaseapp.com',
   databaseURL: 'https://meal2-b8cb2.firebaseio.com',
@@ -19,12 +18,20 @@ var firebaseConfig = {
   measurementId: 'G-4NM0Z51RFF'
 }
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig)
-
+firebase.initializeApp(firebaseConfig);
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created: function () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.commit('updateUser', user)
+      }
+      else {
+        this.$store.commit('updateUser', null)
+      }
+    });
+  }
 }).$mount('#app')

@@ -1,19 +1,26 @@
 <template>
     <div id="barra">
-        <div class="texto-bajo">
+        <!-- <div class="texto-bajo">
             <div><img src="../assets/bookmark.svg" alt=""></div>
-            <router-link to="/">Home</router-link>
+            <router-link to="/">Explorar</router-link>
         </div>
 
         <div class="texto-bajo">
             <div><img src="../assets/bookmark2.svg" alt=""></div>
-            <router-link to="/about">About</router-link>
+            <router-link to="/about">Favoritos</router-link>
         </div>
 
         <div class="texto-bajo">
-           <div><img src="../assets/account.svg" alt=""></div>
-            <router-link to="/login">Login</router-link>
-        </div>
+           <div><img src="../assets/food.svg" alt=""></div>
+            <router-link to="/login">Pedidos</router-link>
+        </div> -->
+
+        
+        <router-link to="/perfil" class="texto-bajo">
+            <div><img src="../assets/account.svg" alt=""></div>
+            <div>Perfil</div>
+        </router-link>
+        
     </div>
 </template>
 
@@ -29,7 +36,7 @@ export default {
         height: 80px;
         width: 100%;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
          position: absolute;
          bottom: 0;
     }
