@@ -1,4 +1,4 @@
-# meal2
+# meal2 Restaurantes Apps
 
 ## Project setup
 ```
