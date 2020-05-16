@@ -4,7 +4,13 @@
             <h1> ENCUENTRA ALGO LOREM IPSUM ASDF </h1>
             <h3> Lorem ipsum dolor sit amet consectetur adipitatem pariatur si</h3>
             <BotonGrande texto="Iniciar Sesión" v-on:click="login" />
+
+            <h4>
+                No tienes cuenta? <router-link to="/registrar"> Registrate </router-link>
+            </h4>
+
         </div>
+        
     </div>
 </template>
 

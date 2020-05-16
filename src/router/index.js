@@ -16,7 +16,7 @@ Vue.use(VueRouter)
   
 const routes = [
   {
-    path: '/welcome',
+    path: '/',
     name: 'Welcome',
     component: Welcome
   },
@@ -74,16 +74,25 @@ const router = new VueRouter({
 // })
 
 router.beforeEach((to, from, next) => {
-  // console.log("this",store.state.user )
+  console.log("Ruta TO",to);
+  
   if (to.matched.some(record => record.meta.requiresAuth  )) {
-    if(store.state.user ){
-      next();
+    //REQUIEREN AUTH
+    if(store.state.user ) next();
+    else next({name: 'Welcome'});
+  }
+  else{
+
+    if (to.name === 'Welcome'){
+      if(store.state.user !== null ) next({name:'Perfil'});
+      else next();
     }
     else{
-      next({name: 'Welcome'});
+      next();
     }
+
   }
-  else next();
+  
 });
 
 export default router
